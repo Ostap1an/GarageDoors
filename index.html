@@ -54,11 +54,11 @@ body, h1, h2, h3, h4, h5, h6, p, a, li {
  .hero-text {
   max-width: 800px;
   text-align: center;
-  margin: 0 auto;
-  font-size: 1.6rem;       /* slightly bigger */
-  font-weight: 500;        /* medium weight */
-  line-height: 1.5;        /* better spacing */
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* stand out on background */
+  margin-top: 30px; /* pushes it further below the title */
+  font-size: 1.5rem;
+  line-height: 1.6;
+  font-weight: 500;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
     .hero::after {
       content: '';
@@ -70,11 +70,11 @@ body, h1, h2, h3, h4, h5, h6, p, a, li {
     }
 
     .hero h1 {
-      font-size: 4rem;
-      z-index: 1;
-      margin-bottom: 20px;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-    }
+  font-size: 4rem;
+  z-index: 1;
+  margin-bottom: 20px; /* distance from text below */
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
 
     .hero p {
       font-size: 1.5rem;
@@ -160,7 +160,10 @@ body, h1, h2, h3, h4, h5, h6, p, a, li {
   <section class="hero">
     <h1>Expertise Garage Doors</h1>
     <p class="hero-text">
-       We install garage doors all around Florida! Affordable prices, many designs, all colors and sizes available!
+        ✅ We install garage doors all around Florida<br>
+    ✅ The most affordable prices<br>
+    ✅ Many designs<br>
+    ✅ All colors and sizes available!
     </p>
   </section>
 
