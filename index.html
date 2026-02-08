@@ -60,6 +60,10 @@ body, h1, h2, h3, h4, h5, h6, p, a, li {
   font-weight: 500;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
+    .hero-text span {
+  display: block;           /* each item on its own line */
+  margin: 5px 0;
+}
     .hero::after {
       content: '';
       position: absolute;
@@ -159,12 +163,12 @@ body, h1, h2, h3, h4, h5, h6, p, a, li {
   <!-- Hero Section -->
   <section class="hero">
     <h1>Expertise Garage Doors</h1>
-    <p class="hero-text">
-        ✅ We install garage doors all around Florida<br>
-    ✅ The most affordable prices<br>
-    ✅ Many designs<br>
-    ✅ All colors and sizes available!
-    </p>
+   <p class="hero-text">
+  <span>We install garage doors all around Florida</span>
+  <span>Affordable prices</span>
+  <span>Many designs</span>
+  <span>All colors and sizes</span>
+</p>
   </section>
 
   <!-- About Section -->
