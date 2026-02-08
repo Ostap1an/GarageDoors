@@ -2,23 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#003366">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#003366">
   <title>Expertise Garage Doors</title>
 
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Anton+SC&display=swap" rel="stylesheet">
 
- <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Bebas+Neue&display=swap" rel="stylesheet">
   <style>
-    .hero {
-  height: calc(100vh - env(safe-area-inset-top));
-  padding-top: env(safe-area-inset-top);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
     /* Reset default margins and paddings */
     * {
       margin: 0;
@@ -26,44 +17,35 @@
       box-sizing: border-box;
     }
 
+    /* Global font */
+    body, h1, h2, h3, h4, h5, h6, p, a, li {
+      font-family: 'Anton SC', sans-serif;
+    }
+
     body {
       background-color: #ffffff;
       color: #ffffff;
-      font-family: 'Anton SC', sans-serif;
     }
-body, h1, h2, h3, h4, h5, h6, p, a, li {
-    font-family: 'Anton SC', sans-serif;
-  }
-    /* Hero Section */
-.hero {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* moves content to top */
-  align-items: center;
-  text-align: center;
-  height: 100vh;
-  padding-top: 60px; /* adjust spacing from top */
-  position: relative;
-  background-image: url('widePhoto.jpeg');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: white;
-}
 
- .hero-text {
-  max-width: 800px;
-  text-align: center;
-  margin-top: 30px; /* pushes it further below the title */
-  font-size: 1.5rem;
-  line-height: 1.6;
-  font-weight: 500;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-}
-    .hero-text span {
-  display: block;           /* each item on its own line */
-  margin: 5px 0;
-}
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      padding-top: constant(safe-area-inset-top);
+      padding-top: env(safe-area-inset-top);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      text-align: center;
+      background-image: url('widePhoto.jpeg');
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      color: white;
+    }
+
     .hero::after {
       content: '';
       position: absolute;
@@ -74,21 +56,29 @@ body, h1, h2, h3, h4, h5, h6, p, a, li {
     }
 
     .hero h1 {
-  font-size: 4rem;
-  z-index: 1;
-  margin-bottom: 20px; /* distance from text below */
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-}
-
-    .hero p {
-      font-size: 1.5rem;
+      font-size: 4rem;
       z-index: 1;
+      margin-top: 60px;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    }
+
+    .hero-text {
+      z-index: 1;
+      margin-top: 30px;
+      font-size: 1.5rem;
+      line-height: 1.8;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+
+    .hero-text span {
+      display: block;
+      margin: 8px 0;
     }
 
     /* About Section */
     .about {
       padding: 60px 20px;
-      background-color: #003366; /* dark blue */
+      background-color: #003366;
       text-align: center;
     }
 
@@ -108,7 +98,7 @@ body, h1, h2, h3, h4, h5, h6, p, a, li {
     /* Gallery Section */
     .gallery {
       padding: 60px 20px;
-      background-color: #f0f8ff; /* very light blue / white accent */
+      background-color: #f0f8ff;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
@@ -152,7 +142,7 @@ body, h1, h2, h3, h4, h5, h6, p, a, li {
         font-size: 3rem;
       }
 
-      .hero p {
+      .hero-text {
         font-size: 1.2rem;
       }
     }
@@ -163,12 +153,12 @@ body, h1, h2, h3, h4, h5, h6, p, a, li {
   <!-- Hero Section -->
   <section class="hero">
     <h1>Expertise Garage Doors</h1>
-   <p class="hero-text">
-  <span>We install garage doors all around Florida</span>
-  <span>Affordable prices</span>
-  <span>Many designs</span>
-  <span>All colors and sizes</span>
-</p>
+    <p class="hero-text">
+      <span>We install garage doors all around Florida</span>
+      <span>Affordable prices</span>
+      <span>Many designs</span>
+      <span>All colors and sizes available</span>
+    </p>
   </section>
 
   <!-- About Section -->
@@ -183,7 +173,6 @@ body, h1, h2, h3, h4, h5, h6, p, a, li {
     <img src="images/photo2.jpg" alt="Garage Door 2">
     <img src="images/photo3.jpg" alt="Garage Door 3">
     <img src="images/photo4.jpg" alt="Garage Door 4">
-    <!-- Add more photos by copying the <img> tag and changing the file path -->
   </section>
 
   <!-- Contact Section -->
