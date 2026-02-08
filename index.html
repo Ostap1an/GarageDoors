@@ -2,11 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Expertise Garage Doors</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    .hero {
+  height: calc(100vh - env(safe-area-inset-top));
+  padding-top: env(safe-area-inset-top);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
     /* Reset default margins and paddings */
     * {
       margin: 0;
