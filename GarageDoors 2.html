@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expertise Garage Doors</title>
+  <style>
+    /* Reset default margins and paddings */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #ffffff;
+      color: #ffffff;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: url('images/garage-door-hero.jpg') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 139, 0.5); /* semi-transparent blue overlay */
+      z-index: 0;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      z-index: 1;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      z-index: 1;
+    }
+
+    /* About Section */
+    .about {
+      padding: 60px 20px;
+      background-color: #003366; /* dark blue */
+      text-align: center;
+    }
+
+    .about h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+
+    .about p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      color: #ffffff;
+    }
+
+    /* Gallery Section */
+    .gallery {
+      padding: 60px 20px;
+      background-color: #f0f8ff; /* very light blue / white accent */
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 40px 20px;
+      background-color: #003366;
+      text-align: center;
+    }
+
+    .contact h2 {
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    .contact p {
+      font-size: 1.2rem;
+      color: white;
+    }
+
+    /* Footer */
+    footer {
+      padding: 20px;
+      background-color: #001f4d;
+      text-align: center;
+      color: white;
+    }
+
+    /* Responsive Text */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 3rem;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Expertise Garage Doors</h1>
+    <p>Installing garage doors all around Florida with different designs and sizes</p>
+  </section>
+
+  <!-- About Section -->
+  <section class="about">
+    <h2>About Us</h2>
+    <p>At Expertise Garage Doors, we provide top-quality installation services throughout Florida. We offer a wide variety of garage door designs and sizes to fit every home and business.</p>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="gallery">
+    <img src="images/photo1.jpg" alt="Garage Door 1">
+    <img src="images/photo2.jpg" alt="Garage Door 2">
+    <img src="images/photo3.jpg" alt="Garage Door 3">
+    <img src="images/photo4.jpg" alt="Garage Door 4">
+    <!-- Add more photos by copying the <img> tag and changing the file path -->
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact">
+    <h2>Contact Us</h2>
+    <p>Email: <a href="mailto:Expertisegdfl@gmail.com" style="color: #ffffff;">Expertisegdfl@gmail.com</a></p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2026 Expertise Garage Doors. All rights reserved.
+  </footer>
+
+</body>
+</html>
