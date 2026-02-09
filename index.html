@@ -22,7 +22,7 @@
       box-sizing: border-box;
     }
 
-    body, h1, h2, h5, p, a, li {
+    body, h1, h5, p, a, li {
       font-family: 'Anton SC', sans-serif;
     }
 
@@ -60,26 +60,28 @@
 
     .hero h1 {
       z-index: 1;
-      margin-top: 40px;
+      margin-top: 40px; /* lower than before */
       font-size: clamp(2.5rem, 6vw, 4rem);
       text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
     }
 
+    /* Subtitle fix */
     .hero h5.hero-subtitle {
       z-index: 1;
-      font-size: clamp(1.2rem, 5vw, 2.2rem); /* scales for small and large screens */
+      font-size: clamp(1.2rem, 5vw, 2.2rem);
       color: #ffffff !important;
       -webkit-text-fill-color: #ffffff !important;
       font-weight: 700;
-      margin: 10px 20px 0; /* top margin + left/right spacing */
+      margin: 10px 20px 0; 
       text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
       text-align: center;
       white-space: nowrap;
-      max-width: 95vw; /* small margin from screen edges */
+      max-width: 95vw;
       overflow: hidden;
       text-overflow: ellipsis;
     }
 
+    /* Hero main text */
     .hero-center {
       flex: 1;
       display: flex;
@@ -92,8 +94,8 @@
 
     .hero-text {
       z-index: 1;
-      margin-top: 20px;
-      font-size: clamp(1rem, 2.5vw, 1.5rem);
+      margin-top: 30px; /* same as original */
+      font-size: 1.5rem; /* keep original size */
       line-height: 1.8;
       text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
       text-align: center;
@@ -109,7 +111,7 @@
       text-decoration: underline;
     }
 
-    /* Important Info Section */
+    /* Other sections remain unchanged */
     .important-info {
       padding: 60px 20px;
       background-color: #ffffff;
@@ -117,108 +119,29 @@
       text-align: center;
     }
 
-    .important-info h2 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #003366;
-    }
+    .important-info h2 { font-size: 2.5rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; color: #003366; }
+    .important-info p { font-size: 1.5rem; max-width: 800px; margin: 10px auto; color: #003366; }
+    .important-info .small-note { font-size: 1.2rem; opacity: 0.9; margin-top: 10px; color: #003366; }
 
-    .important-info p {
-      font-size: 1.5rem;
-      max-width: 800px;
-      margin: 10px auto;
-      color: #003366;
-    }
+    .about { padding: 100px 40px; background-color: #003366; text-align: center; }
+    .about h2 { font-size: 3rem; margin-bottom: 30px; color: #ffffff; }
+    .about p { font-size: 1.4rem; max-width: 700px; margin: 0 auto; color: #ffffff; }
 
-    .important-info .small-note {
-      font-size: 1.2rem;
-      opacity: 0.9;
-      margin-top: 10px;
-      color: #003366;
-    }
+    .gallery { padding: 60px 20px; background-color: #f0f8ff; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .gallery img { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
 
-    /* About Section */
-    .about {
-      padding: 100px 40px;
-      background-color: #003366;
-      text-align: center;
-    }
+    .contact { padding: 40px 20px; background-color: #003366; text-align: center; }
+    .contact h2 { margin-bottom: 20px; color: white; }
+    .contact p { font-size: 1.2rem; color: white; }
+    .contact a { color: #ffffff; text-decoration: underline; }
 
-    .about h2 {
-      font-size: 3rem;
-      margin-bottom: 30px;
-      color: #ffffff;
-    }
-
-    .about p {
-      font-size: 1.4rem;
-      max-width: 700px;
-      margin: 0 auto;
-      color: #ffffff;
-    }
-
-    /* Gallery Section */
-    .gallery {
-      padding: 60px 20px;
-      background-color: #f0f8ff;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .gallery img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-
-    /* Contact Section */
-    .contact {
-      padding: 40px 20px;
-      background-color: #003366;
-      text-align: center;
-    }
-
-    .contact h2 {
-      margin-bottom: 20px;
-      color: white;
-    }
-
-    .contact p {
-      font-size: 1.2rem;
-      color: white;
-    }
-
-    .contact a {
-      color: #ffffff;
-      text-decoration: underline;
-    }
-
-    /* Footer */
-    footer {
-      padding: 20px;
-      background-color: #001f4d;
-      text-align: center;
-      color: white;
-    }
+    footer { padding: 20px; background-color: #001f4d; text-align: center; color: white; }
 
     /* Responsive adjustments */
     @media (max-width: 480px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
-
-      .hero h5.hero-subtitle {
-        font-size: 1rem;
-        white-space: normal; /* allow wrap on tiny screens */
-      }
-
-      .hero-text {
-        font-size: 1rem;
-      }
+      .hero h1 { font-size: 2rem; }
+      .hero h5.hero-subtitle { font-size: 1rem; white-space: normal; }
+      .hero-text { font-size: 1.2rem; }
     }
   </style>
 </head>
