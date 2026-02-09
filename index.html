@@ -67,19 +67,16 @@
       text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
     }
 
-   .hero h2.hero-subtitle {
-  z-index: 1;
-  font-size: clamp(1.2rem, 5vw, 2.5rem); /* smaller min size for small screens */
-  color: #ffffff !important;
-  -webkit-text-fill-color: #ffffff !important; 
-  font-weight: 700;
-  margin-top: 10px;
-  white-space: nowrap; /* try to keep single line */
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-  max-width: 95vw;  /* shrink to fit inside the screen */
-  overflow: hidden;
-  text-overflow: ellipsis; /* optional: adds … if still too long */
-}
+    .hero h2.hero-subtitle {
+      z-index: 1;
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      color: #ffffff !important;
+      -webkit-text-fill-color: #ffffff !important; /* iOS fix */
+      font-weight: 700;
+      margin-top: 10px;
+      white-space: nowrap; /* never wraps */
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    }
 
     .hero-center {
       flex: 1;
@@ -211,12 +208,7 @@
       .hero h1 {
         font-size: 3rem;
       }
-@media (max-width: 400px) {
-  .hero h2.hero-subtitle {
-    font-size: 1rem; /* shrink more if really narrow */
-    letter-spacing: 0.5px; /* reduce spacing to fit */
-  }
-}
+
       .hero h2.hero-subtitle {
         font-size: 1.5rem;
         white-space: normal; /* allow wrapping on very small screens */
