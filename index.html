@@ -14,19 +14,26 @@
   <style>
     * { margin:0; padding:0; box-sizing:border-box; }
 
-    body, h1, h5, p, a, li {
+    body, h1, h5, h2, p, a, li {
       font-family: 'Anton SC', sans-serif;
     }
 
     body { background-color: #ffffff; color: #ffffff; }
 
-    /* Header block above image */
+    /* Hero Section */
+    .hero {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    /* Blue top block */
     .hero-block {
       width: 100%;
-      background-color: #003366; /* dark blue */
+      background-color: #003366;
       color: #ffffff;
       text-align: center;
-      padding: 40px 20px; 
+      padding: 40px 20px;
     }
 
     .hero-block h1 {
@@ -40,7 +47,7 @@
       margin: 0;
     }
 
-    /* Hero Image Section */
+    /* Hero Image with overlay */
     .hero-image {
       position: relative;
       height: 60vh;
@@ -49,79 +56,43 @@
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .hero {
-  position: relative;
-  width: 100%;
-}
+    .hero-image::after {
+      content: '';
+      position: absolute;
+      top:0; left:0;
+      width:100%;
+      height:100%;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.1));
+      z-index: 0;
+    }
 
-.hero-block {
-  width: 100%;
-  background-color: #003366; /* dark blue */
-  color: #ffffff;
-  text-align: center;
-  padding: 40px 20px; 
-}
+    /* Text over hero image */
+    .hero-center {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 0 20px;
+    }
 
-.hero-block h1 {
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  margin-bottom: 10px;
-}
+    .hero-text {
+      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+      line-height: 2;
+      color: #ffffff;
+    }
 
-.hero-block h5 {
-  font-size: clamp(1.2rem, 4vw, 2.2rem);
-  font-weight: 700;
-  margin: 0;
-}
+    .hero-text span { display:block; margin:4px 0; }
 
-.hero-image {
-  position: relative;
-  height: 60vh;
-  min-height: 400px;
-  background-image: url('widePhoto.jpeg');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
+    .hero-text a {
+      color: #ffffff;
+      text-decoration: underline;
+    }
 
-.hero-image::after {
-  content: '';
-  position: absolute;
-  top:0; left:0;
-  width:100%;
-  height:100%;
-  background: rgba(0,0,0,0.3); /* dark overlay for readability */
-}
-
-.hero-center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  z-index: 1;
-}
-
-.hero-text {
-  font-size: 1.5rem;
-  line-height: 1.8;
-  color: #ffffff;
-}
-
-.hero-text a {
-  color: #ffffff;
-  text-decoration: underline;
-}
-
-/* Responsive for mobile */
-@media(max-width:480px){
-  .hero-block h1 { font-size: 2rem; }
-  .hero-block h5 { font-size: 1rem; }
-  .hero-text { font-size: 1.2rem; }
-}
-
-    /* Other sections */
+    /* Important Info Section */
     .important-info {
       padding: 60px 20px;
       background-color: #ffffff;
@@ -129,34 +100,94 @@
       text-align: center;
     }
 
-    .important-info h2 { font-size: 2.5rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing:1px; }
-    .important-info p { font-size: 1.5rem; max-width: 800px; margin: 10px auto; }
-    .important-info .small-note { font-size:1.2rem; opacity:0.9; margin-top:10px; }
+    .important-info h2 { 
+      font-size: 2.5rem; 
+      margin-bottom: 20px; 
+      text-transform: uppercase; 
+      letter-spacing:1px; 
+    }
+    .important-info p { 
+      font-size: 1.5rem; 
+      max-width: 800px; 
+      margin: 10px auto; 
+    }
+    .important-info .small-note { 
+      font-size:1.2rem; 
+      opacity:0.9; 
+      margin-top:10px; 
+    }
 
-    .about { padding: 100px 40px; background-color: #003366; text-align: center; }
-    .about h2 { font-size: 3rem; margin-bottom: 30px; color: #ffffff; }
-    .about p { font-size: 1.4rem; max-width:700px; margin:0 auto; color: #ffffff; }
+    /* About Section */
+    .about {
+      padding: 100px 40px;
+      background-color: #003366;
+      text-align: center;
+    }
+    .about h2 { 
+      font-size: 3rem; 
+      margin-bottom: 30px; 
+      color: #ffffff; 
+    }
+    .about p { 
+      font-size: 1.4rem; 
+      max-width:700px; 
+      margin:0 auto; 
+      color: #ffffff; 
+    }
 
-    .gallery { padding: 60px 20px; background-color: #f0f8ff; display:grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:20px; }
-    .gallery img { width:100%; height:auto; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.2); }
+    /* Gallery Section */
+    .gallery { 
+      padding: 60px 20px; 
+      background-color: #f0f8ff; 
+      display:grid; 
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); 
+      gap:20px; 
+    }
+    .gallery img { 
+      width:100%; 
+      height:auto; 
+      border-radius:8px; 
+      box-shadow:0 4px 8px rgba(0,0,0,0.2); 
+    }
 
-    .contact { padding: 40px 20px; background-color: #003366; text-align:center; }
-    .contact h2 { margin-bottom:20px; color:white; }
-    .contact p { font-size:1.2rem; color:white; }
-    .contact a { color:white; text-decoration:underline; }
+    /* Contact Section */
+    .contact { 
+      padding: 40px 20px; 
+      background-color: #003366; 
+      text-align:center; 
+    }
+    .contact h2 { 
+      margin-bottom:20px; 
+      color:white; 
+    }
+    .contact p { 
+      font-size:1.2rem; 
+      color:white; 
+    }
+    .contact a { 
+      color:white; 
+      text-decoration:underline; 
+    }
 
-    footer { padding:20px; background-color:#001f4d; text-align:center; color:white; }
+    /* Footer */
+    footer { 
+      padding:20px; 
+      background-color:#001f4d; 
+      text-align:center; 
+      color:white; 
+    }
 
+    /* Responsive */
     @media(max-width:480px){
-      .hero-block h1 { font-size:2rem; }
-      .hero-block h5 { font-size:1rem; }
-      .hero-text { font-size:1.2rem; }
+      .hero-block h1 { font-size: 2rem; }
+      .hero-block h5 { font-size: 1rem; }
+      .hero-text { font-size: 1.2rem; }
     }
   </style>
 </head>
 <body>
 
-
+<!-- Hero Section -->
 <section class="hero">
   <!-- Blue top block -->
   <div class="hero-block">
@@ -164,31 +195,33 @@
     <h5>Florida's Best Value Garage Door Installation</h5>
   </div>
 
-  <!-- Hero Image with overlay -->
+  <!-- Hero Image with overlay and centered text -->
   <div class="hero-image">
-    <!-- Centered text over image -->
     <div class="hero-center">
       <p class="hero-text">
-        <span>Call or text us today for a free estimate:</span><br>
-        <span><a href="tel:+18137053104">813-705-3104</a></span><br>
-        <span><a href="mailto:Expertisegdfl@gmail.com">Expertisegdfl@gmail.com</a></span><br><br>
+        <span>Call or text us today for a free estimate:</span>
+        <span><a href="tel:+18137053104">813-705-3104</a></span>
+        <span><a href="mailto:Expertisegdfl@gmail.com">Expertisegdfl@gmail.com</a></span>
         <span>See our work below</span>
       </p>
     </div>
   </div>
 </section>
 
+<!-- Important Info -->
 <section class="important-info">
   <h2>IMPORTANT</h2>
   <p>We install garage doors all around Florida!</p>
   <p class="small-note">*No payment required until the job is complete and you are fully satisfied.</p>
 </section>
 
+<!-- About Section -->
 <section class="about">
   <h2>About Us</h2>
   <p>At Expertise Garage Doors, we offer a wide variety of garage door designs and sizes to fit every home and business. This isn’t just talk! The gallery below shows real installations we’ve completed for our happy clients across Florida.</p>
 </section>
 
+<!-- Gallery -->
 <section class="gallery">
   <img src="images/photo1.jpg" alt="Garage Door 1">
   <img src="images/photo2.jpg" alt="Garage Door 2">
@@ -196,11 +229,13 @@
   <img src="images/photo4.jpg" alt="Garage Door 4">
 </section>
 
+<!-- Contact -->
 <section class="contact">
   <h2>Contact Us</h2>
   <p>Email: <a href="mailto:Expertisegdfl@gmail.com">Expertisegdfl@gmail.com</a></p>
 </section>
 
+<!-- Footer -->
 <footer>
   &copy; 2026 Expertise Garage Doors. All rights reserved.
 </footer>
