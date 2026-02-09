@@ -51,26 +51,75 @@
       background-repeat: no-repeat;
     }
 
-    /* Hero Center Text */
-    .hero-center {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin-top: 20px;
-      text-align: center;
-    }
+    .hero {
+  position: relative;
+  width: 100%;
+}
 
-    .hero-text {
-      font-size: 1.5rem;
-      line-height: 1.8;
-      color: #003366;
-    }
+.hero-block {
+  width: 100%;
+  background-color: #003366; /* dark blue */
+  color: #ffffff;
+  text-align: center;
+  padding: 40px 20px; 
+}
 
-    .hero-text a {
-      color: #003366;
-      text-decoration: underline;
-    }
+.hero-block h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  margin-bottom: 10px;
+}
+
+.hero-block h5 {
+  font-size: clamp(1.2rem, 4vw, 2.2rem);
+  font-weight: 700;
+  margin: 0;
+}
+
+.hero-image {
+  position: relative;
+  height: 60vh;
+  min-height: 400px;
+  background-image: url('widePhoto.jpeg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.hero-image::after {
+  content: '';
+  position: absolute;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.3); /* dark overlay for readability */
+}
+
+.hero-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1;
+}
+
+.hero-text {
+  font-size: 1.5rem;
+  line-height: 1.8;
+  color: #ffffff;
+}
+
+.hero-text a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Responsive for mobile */
+@media(max-width:480px){
+  .hero-block h1 { font-size: 2rem; }
+  .hero-block h5 { font-size: 1rem; }
+  .hero-text { font-size: 1.2rem; }
+}
 
     /* Other sections */
     .important-info {
@@ -107,24 +156,27 @@
 </head>
 <body>
 
-<!-- Hero Block -->
-<section class="hero-block">
-  <h1>Expertise Garage Doors</h1>
-  <h5>Florida's Best Value Garage Door Installation</h5>
+
+<section class="hero">
+  <!-- Blue top block -->
+  <div class="hero-block">
+    <h1>Expertise Garage Doors</h1>
+    <h5>Florida's Best Value Garage Door Installation</h5>
+  </div>
+
+  <!-- Hero Image with overlay -->
+  <div class="hero-image">
+    <!-- Centered text over image -->
+    <div class="hero-center">
+      <p class="hero-text">
+        <span>Call or text us today for a free estimate:</span><br>
+        <span><a href="tel:+18137053104">813-705-3104</a></span><br>
+        <span><a href="mailto:Expertisegdfl@gmail.com">Expertisegdfl@gmail.com</a></span><br><br>
+        <span>See our work below</span>
+      </p>
+    </div>
+  </div>
 </section>
-
-<!-- Hero Image -->
-<section class="hero-image"></section>
-
-
-<div class="hero-center">
-  <p class="hero-text">
-    <span>Call or text us today for a free estimate:</span><br>
-    <span><a href="tel:+18137053104">813-705-3104</a></span><br>
-    <span><a href="mailto:Expertisegdfl@gmail.com">Expertisegdfl@gmail.com</a></span><br><br>
-    <span>See our work below</span>
-  </p>
-</div>
 
 <section class="important-info">
   <h2>IMPORTANT</h2>
