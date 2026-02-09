@@ -4,114 +4,75 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#003366">
-
-  <!-- Disable iOS automatic link styling -->
   <meta name="format-detection" content="telephone=no">
   <meta name="format-detection" content="address=no">
   <meta name="format-detection" content="email=no">
 
   <title>Expertise Garage Doors</title>
-
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Anton+SC&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin:0; padding:0; box-sizing:border-box; }
 
     body, h1, h5, p, a, li {
       font-family: 'Anton SC', sans-serif;
     }
 
-    body {
-      background-color: #ffffff;
+    body { background-color: #ffffff; color: #ffffff; }
+
+    /* Header block above image */
+    .hero-block {
+      width: 100%;
+      background-color: #003366; /* dark blue */
       color: #ffffff;
+      text-align: center;
+      padding: 40px 20px; 
     }
 
-    /* Hero Section */
-    .hero {
+    .hero-block h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      margin-bottom: 10px;
+    }
+
+    .hero-block h5 {
+      font-size: clamp(1.2rem, 4vw, 2.2rem);
+      font-weight: 700;
+      margin: 0;
+    }
+
+    /* Hero Image Section */
+    .hero-image {
       position: relative;
-      min-height: 600px;
-      height: 100vh;
-      padding-top: env(safe-area-inset-top);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      text-align: center;
+      height: 60vh;
+      min-height: 400px;
       background-image: url('widePhoto.jpeg');
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
-      color: white;
     }
 
-    .hero::after {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 139, 0.5);
-      z-index: 0;
-    }
-
-    .hero h1 {
-      z-index: 1;
-      margin-top: 40px; /* lower than before */
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-    }
-
-    /* Subtitle fix */
-    .hero h5.hero-subtitle {
-      z-index: 1;
-      font-size: clamp(1.2rem, 5vw, 2.2rem);
-      color: #ffffff !important;
-      -webkit-text-fill-color: #ffffff !important;
-      font-weight: 700;
-      margin: 10px 20px 0; 
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-      text-align: center;
-      white-space: nowrap;
-      max-width: 95vw;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    /* Hero main text */
+    /* Hero Center Text */
     .hero-center {
-      flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      z-index: 1;
       margin-top: 20px;
-    }
-
-    .hero-text {
-      z-index: 1;
-      margin-top: 30px; /* same as original */
-      font-size: 1.5rem; /* keep original size */
-      line-height: 1.8;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
       text-align: center;
     }
 
-    .hero-text span {
-      display: block;
-      margin: 8px 0;
+    .hero-text {
+      font-size: 1.5rem;
+      line-height: 1.8;
+      color: #003366;
     }
 
     .hero-text a {
-      color: #ffffff;
+      color: #003366;
       text-decoration: underline;
     }
 
-    /* Other sections remain unchanged */
+    /* Other sections */
     .important-info {
       padding: 60px 20px;
       background-color: #ffffff;
@@ -119,48 +80,51 @@
       text-align: center;
     }
 
-    .important-info h2 { font-size: 2.5rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; color: #003366; }
-    .important-info p { font-size: 1.5rem; max-width: 800px; margin: 10px auto; color: #003366; }
-    .important-info .small-note { font-size: 1.2rem; opacity: 0.9; margin-top: 10px; color: #003366; }
+    .important-info h2 { font-size: 2.5rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing:1px; }
+    .important-info p { font-size: 1.5rem; max-width: 800px; margin: 10px auto; }
+    .important-info .small-note { font-size:1.2rem; opacity:0.9; margin-top:10px; }
 
     .about { padding: 100px 40px; background-color: #003366; text-align: center; }
     .about h2 { font-size: 3rem; margin-bottom: 30px; color: #ffffff; }
-    .about p { font-size: 1.4rem; max-width: 700px; margin: 0 auto; color: #ffffff; }
+    .about p { font-size: 1.4rem; max-width:700px; margin:0 auto; color: #ffffff; }
 
-    .gallery { padding: 60px 20px; background-color: #f0f8ff; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-    .gallery img { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+    .gallery { padding: 60px 20px; background-color: #f0f8ff; display:grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:20px; }
+    .gallery img { width:100%; height:auto; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.2); }
 
-    .contact { padding: 40px 20px; background-color: #003366; text-align: center; }
-    .contact h2 { margin-bottom: 20px; color: white; }
-    .contact p { font-size: 1.2rem; color: white; }
-    .contact a { color: #ffffff; text-decoration: underline; }
+    .contact { padding: 40px 20px; background-color: #003366; text-align:center; }
+    .contact h2 { margin-bottom:20px; color:white; }
+    .contact p { font-size:1.2rem; color:white; }
+    .contact a { color:white; text-decoration:underline; }
 
-    footer { padding: 20px; background-color: #001f4d; text-align: center; color: white; }
+    footer { padding:20px; background-color:#001f4d; text-align:center; color:white; }
 
-    /* Responsive adjustments */
-    @media (max-width: 480px) {
-      .hero h1 { font-size: 2rem; }
-      .hero h5.hero-subtitle { font-size: 1rem; white-space: normal; }
-      .hero-text { font-size: 1.2rem; }
+    @media(max-width:480px){
+      .hero-block h1 { font-size:2rem; }
+      .hero-block h5 { font-size:1rem; }
+      .hero-text { font-size:1.2rem; }
     }
   </style>
 </head>
 <body>
 
-<section class="hero">
+<!-- Hero Block -->
+<section class="hero-block">
   <h1>Expertise Garage Doors</h1>
-  <h5 class="hero-subtitle">Florida's Best Value Garage Door Installation</h5>
-
-  <div class="hero-center">
-    <p class="hero-text">
-      <span>Call or text us today for a free estimate:</span>
-      <span><a href="tel:+18137053104">813-705-3104</a></span>
-      <span><a href="mailto:Expertisegdfl@gmail.com">Expertisegdfl@gmail.com</a></span>
-      <br><br>
-      <span>See our work below</span>
-    </p>
-  </div>
+  <h5>Florida's Best Value Garage Door Installation</h5>
 </section>
+
+<!-- Hero Image -->
+<section class="hero-image"></section>
+
+
+<div class="hero-center">
+  <p class="hero-text">
+    <span>Call or text us today for a free estimate:</span><br>
+    <span><a href="tel:+18137053104">813-705-3104</a></span><br>
+    <span><a href="mailto:Expertisegdfl@gmail.com">Expertisegdfl@gmail.com</a></span><br><br>
+    <span>See our work below</span>
+  </p>
+</div>
 
 <section class="important-info">
   <h2>IMPORTANT</h2>
