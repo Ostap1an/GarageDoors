@@ -16,15 +16,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Anton+SC&display=swap" rel="stylesheet">
 
   <style>
-    /* Reset default margins and paddings */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    /* Global font */
-    body, h1, h2, p, a, li {
+    body, h1, h2, h5, p, a, li {
       font-family: 'Anton SC', sans-serif;
     }
 
@@ -56,7 +54,7 @@
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0, 0, 139, 0.5); /* semi-transparent overlay */
+      background: rgba(0, 0, 139, 0.5);
       z-index: 0;
     }
 
@@ -67,20 +65,20 @@
       text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
     }
 
-   .hero h5.hero-subtitle {
-  z-index: 1;
-  font-size: clamp(1rem, 6vw, 2.5rem); /* grows with screen, shrinks for narrow phones */
-  color: #ffffff !important;
-  -webkit-text-fill-color: #ffffff !important;
-  font-weight: 700;
-  margin-top: 10px;
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-  text-align: center;
-  white-space: nowrap;  /* keep single line when possible */
-  max-width: 95vw;      /* ensure it doesn’t overflow */
-  overflow: hidden;
-  text-overflow: ellipsis; /* optional: show … if too long */
-}
+    .hero h5.hero-subtitle {
+      z-index: 1;
+      font-size: clamp(1.2rem, 5vw, 2.2rem); /* scales for small and large screens */
+      color: #ffffff !important;
+      -webkit-text-fill-color: #ffffff !important;
+      font-weight: 700;
+      margin: 10px 20px 0; /* top margin + left/right spacing */
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+      text-align: center;
+      white-space: nowrap;
+      max-width: 95vw; /* small margin from screen edges */
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
 
     .hero-center {
       flex: 1;
@@ -95,7 +93,7 @@
     .hero-text {
       z-index: 1;
       margin-top: 20px;
-      font-size: 1.5rem;
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
       line-height: 1.8;
       text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
       text-align: center;
@@ -207,19 +205,19 @@
       color: white;
     }
 
-    /* Responsive Text */
-    @media (max-width: 768px) {
+    /* Responsive adjustments */
+    @media (max-width: 480px) {
       .hero h1 {
-        font-size: 3rem;
+        font-size: 2rem;
       }
 
       .hero h5.hero-subtitle {
-        font-size: 1.5rem;
-        white-space: normal; /* allow wrapping on very small screens */
+        font-size: 1rem;
+        white-space: normal; /* allow wrap on tiny screens */
       }
 
       .hero-text {
-        font-size: 1.2rem;
+        font-size: 1rem;
       }
     }
   </style>
@@ -241,20 +239,17 @@
   </div>
 </section>
 
-<!-- Important Info Section -->
 <section class="important-info">
   <h2>IMPORTANT</h2>
   <p>We install garage doors all around Florida!</p>
   <p class="small-note">*No payment required until the job is complete and you are fully satisfied.</p>
 </section>
 
-<!-- About Section -->
 <section class="about">
   <h2>About Us</h2>
   <p>At Expertise Garage Doors, we offer a wide variety of garage door designs and sizes to fit every home and business. This isn’t just talk! The gallery below shows real installations we’ve completed for our happy clients across Florida.</p>
 </section>
 
-<!-- Gallery Section -->
 <section class="gallery">
   <img src="images/photo1.jpg" alt="Garage Door 1">
   <img src="images/photo2.jpg" alt="Garage Door 2">
@@ -262,13 +257,11 @@
   <img src="images/photo4.jpg" alt="Garage Door 4">
 </section>
 
-<!-- Contact Section -->
 <section class="contact">
   <h2>Contact Us</h2>
   <p>Email: <a href="mailto:Expertisegdfl@gmail.com">Expertisegdfl@gmail.com</a></p>
 </section>
 
-<!-- Footer -->
 <footer>
   &copy; 2026 Expertise Garage Doors. All rights reserved.
 </footer>
