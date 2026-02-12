@@ -170,6 +170,96 @@
       text-decoration:underline; 
     }
 
+/* Reviews Section */
+.reviews {
+  padding: 60px 20px;
+  background: #ffffff;
+  color: #003366;
+  text-align: center;
+}
+
+.reviews h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+.review-wrapper {
+  position: relative;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.review-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px;
+}
+
+.review-track::-webkit-scrollbar {
+  display: none;
+}
+
+.review-card {
+  min-width: 320px;
+  max-width: 320px;
+  background: #f0f8ff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  text-align: left;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.review-header img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.review-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.review-text {
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+/* Scroll buttons */
+.review-btn {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  background: #003366;
+  color: white;
+  border: none;
+  font-size: 24px;
+  padding: 10px 14px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.review-btn:hover {
+  opacity: 0.85;
+}
+
+.review-btn.left { left: -10px; }
+.review-btn.right { right: -10px; }
+
+@media(max-width:600px){
+  .review-btn { display:none; }
+}
+    
     /* Footer */
     footer { 
       padding:20px; 
@@ -236,6 +326,55 @@
 <img src="Gallery10.jpg" alt="Garage Door 10">
 </section>
 
+<!-- Reviews Section -->
+<section class="reviews">
+  <h2>Customer Reviews</h2>
+
+  <div class="review-wrapper">
+    <button class="review-btn left" onclick="scrollReviews(-1)">❮</button>
+
+    <div class="review-track" id="reviewTrack">
+
+      <!-- Review -->
+      <div class="review-card">
+        <div class="review-header">
+          <img src="rev1.jpg">
+          <div class="review-name">Michael R.</div>
+        </div>
+        <div class="review-text">
+          WFT are those doors??????
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <img src="rev2.jpg">
+          <div class="review-name">Sandra L.</div>
+        </div>
+        <div class="review-text">
+          They showed up on time and finished same day. Highly recommend.
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <img src="rev3.jpg">
+          <div class="review-name">Carlos D.</div>
+        </div>
+        <div class="review-text">
+          Best garage door company I’ve dealt with in Florida.
+        </div>
+      </div>
+
+      <!-- Duplicate pattern — add up to 15 -->
+      <!-- Just copy review-card block and change content -->
+
+    </div>
+
+    <button class="review-btn right" onclick="scrollReviews(1)">❯</button>
+  </div>
+</section>
+  
 <!-- Contact -->
 <section class="contact">
   <h2>Contact Us</h2>
@@ -246,6 +385,15 @@
 <footer>
   &copy; 2026 Affordable Garage Doors. All rights reserved.
 </footer>
-
+<script>
+function scrollReviews(direction){
+  const track = document.getElementById('reviewTrack');
+  const amount = 340;
+  track.scrollBy({
+    left: amount * direction,
+    behavior: 'smooth'
+  });
+}
+</script>
 </body>
 </html>
