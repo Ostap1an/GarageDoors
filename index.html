@@ -75,9 +75,8 @@
   border-radius: 10px;
   overflow: hidden;
   scroll-snap-align: center;
-  transition: transform .35s ease, opacity .35s ease;
-  opacity: .6;
-  transform: scale(.9);
+  opacity: 1;
+  transform: scale(1);
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   flex-shrink: 0; /* Prevent shrinking */
 }
@@ -89,10 +88,7 @@
   padding: 20px 20px;
   scroll-behavior: smooth;
 }
-.gallery-card.active { 
-  opacity: 1; 
-  transform: scale(1.05); 
-}
+
 
 .gallery-card {
   will-change: transform, opacity;
@@ -634,8 +630,26 @@ track.addEventListener('scroll', () => {
 /* Init */
 scrollToCard(1, false);
 updateActive();
+/* Fullscreen gallery image on click */
+galleryCards.forEach(card => {
+  const img = card.querySelector('img');
+  img.style.cursor = 'pointer';
+  img.addEventListener('click', () => {
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImg');
+    modalImg.src = img.src;
+    modal.style.display = 'flex';
+  });
+});
 
+document.getElementById('closeModal').addEventListener('click', () => {
+  document.getElementById('imageModal').style.display = 'none';
+});
 </script>
-
+<!-- Fullscreen Image Modal -->
+<div id="imageModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); justify-content:center; align-items:center; z-index:9999;">
+  <span id="closeModal" style="position:absolute; top:20px; right:30px; font-size:40px; color:white; cursor:pointer;">&times;</span>
+  <img id="modalImg" src="" style="max-width:90%; max-height:90%; border-radius:10px;">
+</div>
 </body>
 </html>
