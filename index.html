@@ -4,168 +4,93 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#003366">
-  <meta name="format-detection" content="telephone=no">
-  <meta name="format-detection" content="address=no">
-  <meta name="format-detection" content="email=no">
 
   <title>Affordable Garage Doors</title>
-  <link href="https://fonts.googleapis.com/css2?family=Anton+SC&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
     * { margin:0; padding:0; box-sizing:border-box; }
 
     body, h1, h5, h2, p, a, li {
-      font-family: 'Anton SC', sans-serif;
+      font-family: 'Playfair Display', serif;
     }
 
     body { background-color: #ffffff; color: #003366; }
 
     /* Hero Section */
-    .hero {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-    }
-
-    .hero-block {
-      width: 100%;
-      background-color: #003366;
-      color: #ffffff;
-      text-align: center;
-      padding: 40px 20px;
-    }
-
-    .hero-block h1 {
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      margin-bottom: 10px;
-    }
-
-    .hero-block h5 {
-      font-size: clamp(1.2rem, 4vw, 2.2rem);
-      font-weight: 700;
-      margin: 0;
-    }
-
-    .hero-image {
-      position: relative;
-      height: 60vh;
-      min-height: 400px;
-      background-image: url('MainImage.jpeg');
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-   .hero-image::after {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(192, 192, 192, 0.4);
-      z-index: 0;
-    }
-
-    .hero-center {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 0 20px;
-    }
-
-    .hero-text {
-      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-      line-height: 2;
-      color: #ffffff;
-    }
-
+    .hero { position: relative; width: 100%; overflow: hidden; }
+    .hero-block { width: 100%; background-color: #003366; color: #ffffff; text-align: center; padding: 40px 20px; }
+    .hero-block h1 { font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 10px; }
+    .hero-block h5 { font-size: clamp(1.2rem, 4vw, 2.2rem); font-weight: 700; margin: 0; }
+    .hero-image { position: relative; height: 60vh; min-height: 400px; background-image: url('MainImage.jpeg'); background-position: center; background-size: cover; background-repeat: no-repeat; display: flex; align-items: center; justify-content: center; }
+    .hero-image::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(192, 192, 192, 0.4); z-index: 0; }
+    .hero-center { position: relative; z-index: 1; text-align: center; padding: 0 20px; }
+    .hero-text { font-size: clamp(1.2rem, 2.5vw, 1.8rem); line-height: 2; color: #ffffff; }
     .hero-text span { display:block; margin:4px 0; }
-
-    .hero-text a {
-      color: #ffffff;
-      text-decoration: underline;
-    }
+    .hero-text a { color: #ffffff; text-decoration: underline; }
 
     /* Important Info Section */
-    .important-info {
-      padding: 60px 20px;
-      background-color: #ffffff;
-      color: #003366;
-      text-align: center;
-    }
-
-    .important-info h2 { 
-      font-size: 2.5rem; 
-      margin-bottom: 20px; 
-      text-transform: uppercase; 
-      letter-spacing:1px; 
-    }
-    .important-info p { 
-      font-size: 1.5rem; 
-      max-width: 800px; 
-      margin: 10px auto; 
-    }
-    .important-info .small-note { 
-      font-size:1.2rem; 
-      opacity:0.9; 
-      margin-top:10px; 
-    }
+    .important-info { padding: 60px 20px; background-color: #ffffff; color: #003366; text-align: center; }
+    .important-info h2 { font-size: 2.5rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing:1px; }
+    .important-info p { font-size: 1.5rem; max-width: 800px; margin: 10px auto; }
+    .important-info .small-note { font-size:1.2rem; opacity:0.9; margin-top:10px; }
 
     /* About Section */
-    .about {
-      padding: 100px 40px;
-      background-color: #003366;
+    .about { padding: 100px 40px; background-color: #003366; text-align: center; }
+    .about h2 { font-size: 3rem; margin-bottom: 30px; color: #ffffff; }
+    .about p { font-size: 1.4rem; max-width:700px; margin:0 auto; color: #ffffff; }
+
+    /* NEW Gallery Carousel */
+    .gallery-carousel {
+      padding: 60px 20px;
+      background-color: #f0f8ff;
+      position: relative;
       text-align: center;
     }
-    .about h2 { 
-      font-size: 3rem; 
-      margin-bottom: 30px; 
-      color: #ffffff; 
+    .gallery-carousel h2 { font-size: 2.5rem; margin-bottom: 30px; color: #003366; }
+    .gallery-track {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      padding: 20px 40px;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
     }
-    .about p { 
-      font-size: 1.4rem; 
-      max-width:700px; 
-      margin:0 auto; 
-      color: #ffffff; 
+    .gallery-track::-webkit-scrollbar { display: none; }
+    .gallery-card {
+      min-width: 300px;
+      max-width: 300px;
+      border-radius: 10px;
+      overflow: hidden;
+      scroll-snap-align: center;
+      transition: transform .35s ease, opacity .35s ease;
+      opacity: .6;
+      transform: scale(.9);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
+    .gallery-card.active { opacity: 1; transform: scale(1.05); }
 
-    /* Gallery Section */
-    .gallery { 
-      padding: 60px 20px; 
-      background-color: #f0f8ff; 
-      display:grid; 
-      grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); 
-      gap:20px; 
-    }
-    .gallery img { 
-      width:100%; 
-      height:auto; 
-      border-radius:8px; 
-      box-shadow:0 4px 8px rgba(0,0,0,0.2); 
-    }
+    .gallery-card img { width:100%; height:auto; display:block; }
 
-    /* Contact Section */
-    .contact { 
-      padding: 40px 20px; 
-      background-color: #003366; 
-      text-align:center; 
+    .gallery-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #003366;
+      color: white;
+      border: none;
+      font-size: 24px;
+      padding: 12px 16px;
+      cursor: pointer;
+      border-radius: 10px;
+      z-index: 5;
     }
-    .contact h2 { 
-      margin-bottom:20px; 
-      color:white; 
-    }
-    .contact p { 
-      font-size:1.2rem; 
-      color:white; 
-    }
-    .contact a { 
-      color:white; 
-      text-decoration:underline; 
-    }
+    .gallery-btn.left { left: 5px; }
+    .gallery-btn.right { right: 5px; }
+    @media(max-width:600px){ .gallery-btn { display:none; } }
 
+    /* Reviews Section */
     /* Reviews Section */
     .reviews {
       padding: 60px 20px;
@@ -232,8 +157,7 @@
       border-radius: 50%;
       object-fit: cover;
     }
-
-    .review-name {
+.review-name {
       font-size: 1.2rem;
       font-weight: bold;
     }
@@ -264,13 +188,16 @@
       .review-btn { display:none; }
     }
 
+
+
+    /* Contact */
+    .contact { padding: 40px 20px; background-color: #003366; text-align:center; }
+    .contact h2 { margin-bottom:20px; color:white; }
+    .contact p { font-size:1.2rem; color:white; }
+    .contact a { color:white; text-decoration:underline; }
+
     /* Footer */
-    footer { 
-      padding:20px; 
-      background-color:#001f4d; 
-      text-align:center; 
-      color:white; 
-    }
+    footer { padding:20px; background-color:#001f4d; text-align:center; color:white; }
 
     /* Responsive */
     @media(max-width:480px){
@@ -288,7 +215,6 @@
     <h1>Affordable Garage Doors</h1>
     <h5>Florida's Best Value Garage Door Installation</h5>
   </div>
-
   <div class="hero-image">
     <div class="hero-center">
       <p class="hero-text">
@@ -314,21 +240,100 @@
   <p>At Expertise Garage Doors, we offer a wide variety of garage door designs and sizes to fit every home and business. This isn’t just talk! The gallery below shows real installations we’ve completed for our happy clients across Florida.</p>
 </section>
 
-<!-- Gallery -->
-<section class="gallery">
-<img src="Gallery1.jpg" alt="Garage Door 1">
-<img src="Gallery2.jpg" alt="Garage Door 2">
-<img src="Gallery3.jpg" alt="Garage Door 3">
-<img src="Gallery4.jpg" alt="Garage Door 4">
-<img src="Gallery5.jpg" alt="Garage Door 5">
-<img src="Gallery6.jpg" alt="Garage Door 6">
-<img src="Gallery7.jpg" alt="Garage Door 7">
-<img src="Gallery8.jpg" alt="Garage Door 8">
-<img src="Gallery9.jpg" alt="Garage Door 9">
-<img src="Gallery10.jpg" alt="Garage Door 10">
+<!-- NEW Gallery Carousel -->
+<section class="gallery-carousel">
+  <h2>Our Work</h2>
+  <button class="gallery-btn left" onclick="scrollGallery(-1)">❮</button>
+  <div class="gallery-track" id="galleryTrack">
+   <div class="gallery-card"><img src="photo1.jpeg" alt="Garage Door 1"></div>
+<div class="gallery-card"><img src="photo2.jpeg" alt="Garage Door 2"></div>
+<div class="gallery-card"><img src="photo3.jpeg" alt="Garage Door 3"></div>
+<div class="gallery-card"><img src="photo4.jpeg" alt="Garage Door 4"></div>
+<div class="gallery-card"><img src="photo5.jpeg" alt="Garage Door 5"></div>
+<div class="gallery-card"><img src="photo6.jpeg" alt="Garage Door 6"></div>
+<div class="gallery-card"><img src="photo7.jpeg" alt="Garage Door 7"></div>
+<div class="gallery-card"><img src="photo8.jpeg" alt="Garage Door 8"></div>
+<div class="gallery-card"><img src="photo9.jpeg" alt="Garage Door 9"></div>
+<div class="gallery-card"><img src="photo10.jpeg" alt="Garage Door 10"></div>
+<div class="gallery-card"><img src="photo11.jpeg" alt="Garage Door 11"></div>
+<div class="gallery-card"><img src="photo12.jpeg" alt="Garage Door 12"></div>
+<div class="gallery-card"><img src="photo13.jpeg" alt="Garage Door 13"></div>
+<div class="gallery-card"><img src="photo14.jpeg" alt="Garage Door 14"></div>
+<div class="gallery-card"><img src="photo15.jpeg" alt="Garage Door 15"></div>
+<div class="gallery-card"><img src="photo16.jpeg" alt="Garage Door 16"></div>
+<div class="gallery-card"><img src="photo17.jpeg" alt="Garage Door 17"></div>
+<div class="gallery-card"><img src="photo18.jpeg" alt="Garage Door 18"></div>
+<div class="gallery-card"><img src="photo19.jpeg" alt="Garage Door 19"></div>
+<div class="gallery-card"><img src="photo20.jpeg" alt="Garage Door 20"></div>
+<div class="gallery-card"><img src="photo21.jpeg" alt="Garage Door 21"></div>
+<div class="gallery-card"><img src="photo22.jpeg" alt="Garage Door 22"></div>
+<div class="gallery-card"><img src="photo23.jpeg" alt="Garage Door 23"></div>
+<div class="gallery-card"><img src="photo24.jpeg" alt="Garage Door 24"></div>
+<div class="gallery-card"><img src="photo25.jpeg" alt="Garage Door 25"></div>
+<div class="gallery-card"><img src="photo26.jpeg" alt="Garage Door 26"></div>
+<div class="gallery-card"><img src="photo27.jpeg" alt="Garage Door 27"></div>
+<div class="gallery-card"><img src="photo28.jpeg" alt="Garage Door 28"></div>
+<div class="gallery-card"><img src="photo29.jpeg" alt="Garage Door 29"></div>
+<div class="gallery-card"><img src="photo30.jpeg" alt="Garage Door 30"></div>
+<div class="gallery-card"><img src="photo31.jpeg" alt="Garage Door 31"></div>
+<div class="gallery-card"><img src="photo32.jpeg" alt="Garage Door 32"></div>
+<div class="gallery-card"><img src="photo33.jpeg" alt="Garage Door 33"></div>
+<div class="gallery-card"><img src="photo34.jpeg" alt="Garage Door 34"></div>
+<div class="gallery-card"><img src="photo35.jpeg" alt="Garage Door 35"></div>
+<div class="gallery-card"><img src="photo36.jpeg" alt="Garage Door 36"></div>
+<div class="gallery-card"><img src="photo37.jpeg" alt="Garage Door 37"></div>
+<div class="gallery-card"><img src="photo38.jpeg" alt="Garage Door 38"></div>
+<div class="gallery-card"><img src="photo39.jpeg" alt="Garage Door 39"></div>
+<div class="gallery-card"><img src="photo40.jpeg" alt="Garage Door 40"></div>
+<div class="gallery-card"><img src="photo41.jpeg" alt="Garage Door 41"></div>
+<div class="gallery-card"><img src="photo42.jpeg" alt="Garage Door 42"></div>
+<div class="gallery-card"><img src="photo43.jpeg" alt="Garage Door 43"></div>
+<div class="gallery-card"><img src="photo44.jpeg" alt="Garage Door 44"></div>
+<div class="gallery-card"><img src="photo45.jpeg" alt="Garage Door 45"></div>
+<div class="gallery-card"><img src="photo46.jpeg" alt="Garage Door 46"></div>
+<div class="gallery-card"><img src="photo47.jpeg" alt="Garage Door 47"></div>
+<div class="gallery-card"><img src="photo48.jpeg" alt="Garage Door 48"></div>
+<div class="gallery-card"><img src="photo49.jpeg" alt="Garage Door 49"></div>
+<div class="gallery-card"><img src="photo50.jpeg" alt="Garage Door 50"></div>
+<div class="gallery-card"><img src="photo51.jpeg" alt="Garage Door 51"></div>
+<div class="gallery-card"><img src="photo52.jpeg" alt="Garage Door 52"></div>
+<div class="gallery-card"><img src="photo53.jpeg" alt="Garage Door 53"></div>
+<div class="gallery-card"><img src="photo54.jpeg" alt="Garage Door 54"></div>
+<div class="gallery-card"><img src="photo55.jpeg" alt="Garage Door 55"></div>
+<div class="gallery-card"><img src="photo56.jpeg" alt="Garage Door 56"></div>
+<div class="gallery-card"><img src="photo57.jpeg" alt="Garage Door 57"></div>
+<div class="gallery-card"><img src="photo58.jpeg" alt="Garage Door 58"></div>
+<div class="gallery-card"><img src="photo59.jpeg" alt="Garage Door 59"></div>
+<div class="gallery-card"><img src="photo60.jpeg" alt="Garage Door 60"></div>
+<div class="gallery-card"><img src="photo61.jpeg" alt="Garage Door 61"></div>
+<div class="gallery-card"><img src="photo62.jpeg" alt="Garage Door 62"></div>
+<div class="gallery-card"><img src="photo63.jpeg" alt="Garage Door 63"></div>
+<div class="gallery-card"><img src="photo64.jpeg" alt="Garage Door 64"></div>
+<div class="gallery-card"><img src="photo65.jpeg" alt="Garage Door 65"></div>
+<div class="gallery-card"><img src="photo66.jpeg" alt="Garage Door 66"></div>
+<div class="gallery-card"><img src="photo67.jpeg" alt="Garage Door 67"></div>
+<div class="gallery-card"><img src="photo68.jpeg" alt="Garage Door 68"></div>
+<div class="gallery-card"><img src="photo69.jpeg" alt="Garage Door 69"></div>
+<div class="gallery-card"><img src="photo70.jpeg" alt="Garage Door 70"></div>
+<div class="gallery-card"><img src="photo71.jpeg" alt="Garage Door 71"></div>
+<div class="gallery-card"><img src="photo72.jpeg" alt="Garage Door 72"></div>
+<div class="gallery-card"><img src="photo73.jpeg" alt="Garage Door 73"></div>
+<div class="gallery-card"><img src="photo74.jpeg" alt="Garage Door 74"></div>
+<div class="gallery-card"><img src="photo75.jpeg" alt="Garage Door 75"></div>
+<div class="gallery-card"><img src="photo76.jpeg" alt="Garage Door 76"></div>
+<div class="gallery-card"><img src="photo77.jpeg" alt="Garage Door 77"></div>
+<div class="gallery-card"><img src="photo78.jpeg" alt="Garage Door 78"></div>
+<div class="gallery-card"><img src="photo79.jpeg" alt="Garage Door 79"></div>
+<div class="gallery-card"><img src="photo80.jpeg" alt="Garage Door 80"></div>
+<div class="gallery-card"><img src="photo81.jpeg" alt="Garage Door 81"></div>
+<div class="gallery-card"><img src="photo82.jpeg" alt="Garage Door 82"></div>
+<div class="gallery-card"><img src="photo83.jpeg" alt="Garage Door 83"></div>
+<div class="gallery-card"><img src="photo84.jpeg" alt="Garage Door 84"></div>
+  </div>
+  <button class="gallery-btn right" onclick="scrollGallery(1)">❯</button>
 </section>
 
-<!-- Reviews Section -->
+<!-- Reviews Section (unchanged) -->
 <section class="reviews">
   <h2>Customer Reviews</h2>
 
@@ -443,8 +448,8 @@
     <button class="review-btn right" onclick="scrollReviews(1)">❯</button>
   </div>
 </section>
-  
-<!-- Contact -->
+
+<!-- Contact Section -->
 <section class="contact">
   <h2>Contact Us</h2>
   <p>Email: <a href="mailto:Expertisegdfl@gmail.com">Expertisegdfl@gmail.com</a></p>
@@ -456,6 +461,46 @@
 </footer>
 
 <script>
+/* Gallery Carousel Logic */
+const galleryTrack = document.getElementById('galleryTrack');
+let galleryCards = Array.from(galleryTrack.children);
+
+function scrollGallery(dir){
+  const active = document.querySelector('.gallery-card.active') || galleryCards[0];
+  const index = galleryCards.indexOf(active);
+  let newIndex = index + dir;
+  if(newIndex < 0) newIndex = 0;
+  if(newIndex >= galleryCards.length) newIndex = galleryCards.length-1;
+  scrollToGalleryCard(newIndex);
+}
+
+function scrollToGalleryCard(index){
+  const card = galleryCards[index];
+  galleryTrack.scrollTo({
+    left: card.offsetLeft - galleryTrack.offsetWidth/2 + card.offsetWidth/2,
+    behavior: "smooth"
+  });
+  updateGalleryActive(index);
+}
+
+function updateGalleryActive(activeIndex=null){
+  galleryCards.forEach(c => c.classList.remove('active'));
+  if(activeIndex===null){
+    const center = galleryTrack.scrollLeft + galleryTrack.offsetWidth/2;
+    let closestDist = Infinity, closest = null;
+    galleryCards.forEach((card,i)=>{
+      const cardCenter = card.offsetLeft + card.offsetWidth/2;
+      const dist = Math.abs(center - cardCenter);
+      if(dist<closestDist){ closestDist=dist; closest=i; }
+    });
+    if(closest!==null) galleryCards[closest].classList.add('active');
+  } else {
+    galleryCards[activeIndex].classList.add('active');
+  }
+}
+
+galleryTrack.addEventListener('scroll', ()=> updateGalleryActive());
+scrollToGalleryCard(0);
 const track = document.getElementById('reviewTrack');
 let cards = Array.from(track.children);
 
@@ -523,6 +568,8 @@ track.addEventListener('scroll', () => {
 /* Init */
 scrollToCard(1, false);
 updateActive();
+
 </script>
+
 </body>
 </html>
