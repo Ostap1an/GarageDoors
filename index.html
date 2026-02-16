@@ -588,22 +588,28 @@ function scrollToCard(index, smooth=true){
 }
 
 /* Highlight center card */
+
 function updateActive(){
-  const center = track.scrollLeft + track.offsetWidth / 2;
+  const trackRect = track.getBoundingClientRect();
+  const trackCenter = trackRect.left + trackRect.width / 2;
+
   let closest = null;
   let closestDist = Infinity;
+
   cards.forEach(card => {
-    const cardCenter = card.offsetLeft + card.offsetWidth/2;
-    const dist = Math.abs(center - cardCenter);
+    const cardRect = card.getBoundingClientRect();
+    const cardCenter = cardRect.left + cardRect.width / 2;
+    const dist = Math.abs(trackCenter - cardCenter);
+
     if(dist < closestDist){
       closestDist = dist;
       closest = card;
     }
   });
+
   cards.forEach(c => c.classList.remove('active'));
   if(closest) closest.classList.add('active');
 }
-
 /* Loop logic */
 function handleLoop(){
   const firstReal = cards[1];
