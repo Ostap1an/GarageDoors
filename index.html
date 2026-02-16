@@ -66,20 +66,41 @@
       scroll-behavior: smooth;
     }
     .gallery-track::-webkit-scrollbar { display: none; }
-    .gallery-card {
-      min-width: 300px;
-      max-width: 300px;
-      border-radius: 10px;
-      overflow: hidden;
-      scroll-snap-align: center;
-      transition: transform .35s ease, opacity .35s ease;
-      opacity: .6;
-      transform: scale(.9);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
+    
     .gallery-card.active { opacity: 1; transform: scale(1.05); }
+.gallery-card {
+  min-width: 300px;
+  max-width: 300px;
+  height: 200px; /* Fixed height for uniform cards */
+  border-radius: 10px;
+  overflow: hidden;
+  scroll-snap-align: center;
+  transition: transform .35s ease, opacity .35s ease;
+  opacity: .6;
+  transform: scale(.9);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  flex-shrink: 0; /* Prevent shrinking */
+}
+.gallery-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 20px 20px;
+  scroll-behavior: smooth;
+}
+.gallery-card.active { 
+  opacity: 1; 
+  transform: scale(1.05); 
+}
 
-    .gallery-card img { width:100%; height:auto; display:block; }
+.gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cover the card while keeping aspect ratio */
+  display: block;
+}
+    
 
     .gallery-btn {
       position: absolute;
@@ -471,24 +492,38 @@
 <script>
 /* Gallery Carousel Logic */
 const galleryTrack = document.getElementById('galleryTrack');
-let galleryCards = Array.from(galleryTrack.children);
+const galleryCards = Array.from(galleryTrack.children);
 
-function scrollGallery(dir){
-  const active = document.querySelector('.gallery-card.active') || galleryCards[0];
-  const index = galleryCards.indexOf(active);
-  let newIndex = index + dir;
-  if(newIndex < 0) newIndex = 0;
-  if(newIndex >= galleryCards.length) newIndex = galleryCards.length-1;
-  scrollToGalleryCard(newIndex);
+function updateActiveGalleryCard() {
+  const center = galleryTrack.scrollLeft + galleryTrack.offsetWidth / 2;
+  let closest = galleryCards[0];
+  let closestDist = Infinity;
+
+  galleryCards.forEach(card => {
+    const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+    const dist = Math.abs(center - cardCenter);
+    if (dist < closestDist) {
+      closestDist = dist;
+      closest = card;
+    }
+  });
+
+  galleryCards.forEach(c => c.classList.remove('active'));
+  closest.classList.add('active');
 }
 
-function scrollToGalleryCard(index){
-  const card = galleryCards[index];
-  galleryTrack.scrollTo({
-    left: card.offsetLeft - galleryTrack.offsetWidth/2 + card.offsetWidth/2,
-    behavior: "smooth"
-  });
-  updateGalleryActive(index);
+galleryTrack.addEventListener('scroll', updateActiveGalleryCard);
+updateActiveGalleryCard(); // Initialize
+
+// Button scrolling
+function scrollGallery(dir){
+  const activeIndex = galleryCards.findIndex(c => c.classList.contains('active'));
+  let newIndex = activeIndex + dir;
+  if(newIndex < 0) newIndex = 0;
+  if(newIndex >= galleryCards.length) newIndex = galleryCards.length - 1;
+
+  galleryCards[newIndex].scrollIntoView({ behavior: 'smooth', inline: 'center' });
+  setTimeout(updateActiveGalleryCard, 300); // Update active after scroll
 }
 
 function updateGalleryActive(activeIndex=null){
