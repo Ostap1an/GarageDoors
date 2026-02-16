@@ -94,6 +94,9 @@
   transform: scale(1.05); 
 }
 
+.gallery-card {
+  will-change: transform, opacity;
+}
 .gallery-card img {
   width: 100%;
   height: 100%;
@@ -494,12 +497,20 @@
 const galleryTrack = document.getElementById('galleryTrack');
 const galleryCards = Array.from(galleryTrack.children);
 
-function updateActiveGalleryCard() {
+function updateGalleryActive() {
   const center = galleryTrack.scrollLeft + galleryTrack.offsetWidth / 2;
-  let closest = galleryCards[0];
+
+  // Only check visible cards
+  const visibleCards = galleryCards.filter(card => {
+    const cardLeft = card.offsetLeft;
+    const cardRight = cardLeft + card.offsetWidth;
+    return (cardRight > galleryTrack.scrollLeft && cardLeft < galleryTrack.scrollLeft + galleryTrack.offsetWidth);
+  });
+
+  let closest = visibleCards[0];
   let closestDist = Infinity;
 
-  galleryCards.forEach(card => {
+  visibleCards.forEach(card => {
     const cardCenter = card.offsetLeft + card.offsetWidth / 2;
     const dist = Math.abs(center - cardCenter);
     if (dist < closestDist) {
@@ -512,8 +523,20 @@ function updateActiveGalleryCard() {
   closest.classList.add('active');
 }
 
-galleryTrack.addEventListener('scroll', updateActiveGalleryCard);
-updateActiveGalleryCard(); // Initialize
+// Use requestAnimationFrame to throttle scroll updates
+let ticking = false;
+galleryTrack.addEventListener('scroll', () => {
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      updateGalleryActive();
+      ticking = false;
+    });
+    ticking = true;
+  }
+});
+
+// Initialize
+updateGalleryActive();
 
 // Button scrolling
 function scrollGallery(dir){
