@@ -507,15 +507,7 @@
 const galleryTrack = document.getElementById('galleryTrack');
 const galleryCards = Array.from(galleryTrack.children);
 
-function updateGalleryActive() {
-  const center = galleryTrack.scrollLeft + galleryTrack.offsetWidth / 2;
 
-  // Only check visible cards
-  const visibleCards = galleryCards.filter(card => {
-    const cardLeft = card.offsetLeft;
-    const cardRight = cardLeft + card.offsetWidth;
-    return (cardRight > galleryTrack.scrollLeft && cardLeft < galleryTrack.scrollLeft + galleryTrack.offsetWidth);
-  });
 
   let closest = visibleCards[0];
   let closestDist = Infinity;
@@ -556,7 +548,7 @@ function scrollGallery(dir){
   if(newIndex >= galleryCards.length) newIndex = galleryCards.length - 1;
 
   galleryCards[newIndex].scrollIntoView({ behavior: 'smooth', inline: 'center' });
-  setTimeout(updateActiveGalleryCard, 300); // Update active after scroll
+ setTimeout(() => updateGalleryActive(), 300);
 }
 
 function updateGalleryActive(activeIndex=null){
@@ -576,7 +568,7 @@ function updateGalleryActive(activeIndex=null){
 }
 
 galleryTrack.addEventListener('scroll', ()=> updateGalleryActive());
-scrollToGalleryCard(0);
+
 const track = document.getElementById('reviewTrack');
 let cards = Array.from(track.children);
 
