@@ -69,6 +69,17 @@
   margin-top: 15px;
   color: #003366;     /* matches your brand color */
 }
+
+    .fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
     /* About Section */
     .about { padding: 100px 40px; background-color: #003366; text-align: center; }
     .about h2 { font-size: 3rem; margin-bottom: 30px; color: #ffffff; }
@@ -649,6 +660,19 @@ modal.addEventListener('click', (e) => {
   if (e.target === modal) {
     modal.style.display = 'none';
   }
+});
+
+  const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+});
+
+document.querySelectorAll('section').forEach(section => {
+  section.classList.add('fade-in');
+  observer.observe(section);
 });
 </script>
 
