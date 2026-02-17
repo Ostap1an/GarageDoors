@@ -503,52 +503,15 @@
 </footer>
 
 <script>
-/* Gallery Carousel Logic */
 const galleryTrack = document.getElementById('galleryTrack');
-const galleryCards = Array.from(galleryTrack.children);
+const galleryCards = document.querySelectorAll('.gallery-card');
 
-
-
-  let closest = visibleCards[0];
-  let closestDist = Infinity;
-
-  visibleCards.forEach(card => {
-    const cardCenter = card.offsetLeft + card.offsetWidth / 2;
-    const dist = Math.abs(center - cardCenter);
-    if (dist < closestDist) {
-      closestDist = dist;
-      closest = card;
-    }
+function scrollGallery(direction) {
+  const cardWidth = galleryCards[0].offsetWidth + 20;
+  galleryTrack.scrollBy({
+    left: direction * cardWidth,
+    behavior: 'smooth'
   });
-
-  galleryCards.forEach(c => c.classList.remove('active'));
-  closest.classList.add('active');
-}
-
-// Use requestAnimationFrame to throttle scroll updates
-let ticking = false;
-galleryTrack.addEventListener('scroll', () => {
-  if (!ticking) {
-    window.requestAnimationFrame(() => {
-      updateGalleryActive();
-      ticking = false;
-    });
-    ticking = true;
-  }
-});
-
-// Initialize
-updateGalleryActive();
-
-// Button scrolling
-function scrollGallery(dir){
-  const activeIndex = galleryCards.findIndex(c => c.classList.contains('active'));
-  let newIndex = activeIndex + dir;
-  if(newIndex < 0) newIndex = 0;
-  if(newIndex >= galleryCards.length) newIndex = galleryCards.length - 1;
-
-  galleryCards[newIndex].scrollIntoView({ behavior: 'smooth', inline: 'center' });
- setTimeout(() => updateGalleryActive(), 300);
 }
 
 function updateGalleryActive(activeIndex=null){
