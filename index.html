@@ -25,43 +25,19 @@
     .hero-block h5 { font-size: clamp(1.2rem, 4vw, 2.2rem); font-weight: 700; margin: 0; }
     .hero-image { position: relative; height: 60vh; min-height: 400px; background-image: url('MainImage.jpeg'); background-position: center; background-size: cover; background-repeat: no-repeat; display: flex; align-items: center; justify-content: center; }
     
-   .hero-image {
-  height: 65vh;
-  min-height: 420px;
-  background-image: url('MainImage.jpeg');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
+    .hero-image::after { 
+  content: ''; 
+  position: absolute; 
+  top: 0; left: 0; 
+  width: 100%; height: 100%; 
+  background: rgba(0, 51, 102, 0.6); /* dark blue tint */
+  z-index: 0; 
+  }
     .hero-center { position: relative; z-index: 1; text-align: center; padding: 0 20px; }
     .hero-text { font-size: clamp(1.2rem, 2.5vw, 1.8rem); line-height: 2; color: #ffffff; }
     .hero-text span { display:block; margin:4px 0; }
     .hero-text a { color: #ffffff; text-decoration: underline; }
 
-
-    .cta-box {
-  background-color: #003366;
-  color: #ffffff;
-  text-align: center;
-  padding: 40px 20px;
-}
-
-.cta-box p {
-  font-size: 1.4rem;
-  margin: 8px 0;
-}
-
-.cta-box a {
-  color: #ffffff;
-  text-decoration: underline;
-  font-weight: bold;
-}
-
-.cta-box .see-work {
-  margin-top: 15px;
-  font-size: 1.2rem;
-  opacity: 0.9;
-}
     /* Important Info Section */
     .important-info { padding: 60px 20px; background-color: #ffffff; color: #003366; text-align: center; }
     .important-info h2 { font-size: 2.5rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing:1px; }
@@ -271,14 +247,16 @@
     <h1>Affordable Garage Doors</h1>
     <h5>Florida's Best Value Garage Door Installation</h5>
   </div>
- <div class="hero-image"></div>
-
-<div class="cta-box">
-  <p>Call or Text Us Today for a Free Estimate</p>
-  <p><a href="tel:+18137053104">813-705-3104</a></p>
-  <p><a href="mailto:Affordablegdfl@gmail.com">Affordablegdfl@gmail.com</a></p>
-  <p class="see-work">See our work below</p>
-</div>
+  <div class="hero-image">
+    <div class="hero-center">
+      <p class="hero-text">
+        <span>Call or text us today for a free estimate:</span>
+        <span><a href="tel:+18137053104">813-705-3104</a></span>
+        <span><a href="mailto:Affordablegdfl@gmail.com">Affordablegdfl@gmail.com</a></span>
+        <span>See our work below</span>
+      </p>
+    </div>
+  </div>
 </section>
 
 <!-- Important Info -->
