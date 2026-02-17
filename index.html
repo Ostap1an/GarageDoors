@@ -38,6 +38,26 @@
     .hero-text span { display:block; margin:4px 0; }
     .hero-text a { color: #ffffff; text-decoration: underline; }
 
+
+    .call-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #003366;
+  color: white;
+  padding: 14px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  z-index: 9999;
+  transition: 0.3s ease;
+}
+
+.call-float:hover {
+  background: #0055aa;
+  transform: translateY(-3px);
+}
     /* Important Info Section */
     .important-info { padding: 60px 20px; background-color: #ffffff; color: #003366; text-align: center; }
     .important-info h2 { font-size: 2.5rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing:1px; }
@@ -632,6 +652,8 @@ modal.addEventListener('click', (e) => {
 });
 </script>
 
-
+<a href="tel:+18137053104" class="call-float">
+  📞 Call Now
+</a>
 </body>
 </html>
